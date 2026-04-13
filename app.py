@@ -4,7 +4,6 @@ os.environ["MPLCONFIGDIR"] = "/tmp"
 
 import cv2
 import numpy as np
-import torch
 import yaml
 import base64
 import json
@@ -32,7 +31,6 @@ from sklearn.metrics import (
     roc_auc_score,
     matthews_corrcoef,
 )
-import matplotlib.pyplot as plt
 
 # Import your model and utilities
 try:
@@ -96,25 +94,33 @@ except FileNotFoundError:
     print(f"Warning: Config file not found at {config_path}, using defaults")
     cfg = {"num_classes": 10}
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-print(f"Using device: {device}")
-
-# Load model
+# Lazy model loading
 model = None
-try:
-    weights_path = os.path.join(
-        os.path.dirname(__file__), "backend", "ml", "weights", "segformer.pth"
-    )
-    if os.path.exists(weights_path):
-        model = get_model(cfg.get("num_classes", 10)).to(device)
-        model.load_state_dict(torch.load(weights_path, map_location=device))
-        model.eval()
-        print("Model loaded successfully")
-    else:
-        print(f"Warning: Model weights not found at {weights_path}")
-except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None
+device = None
+
+
+def load_model():
+    global model, device
+    if model is None:
+        import torch
+
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {device}")
+
+        weights_path = os.path.join(
+            os.path.dirname(__file__), "backend", "ml", "weights", "segformer.pth"
+        )
+
+        if os.path.exists(weights_path):
+            model = get_model(cfg.get("num_classes", 10)).to(device)
+            model.load_state_dict(torch.load(weights_path, map_location=device))
+            model.eval()
+            print("Model loaded successfully")
+        else:
+            print(f"Warning: Model weights not found at {weights_path}")
+
+    return model, device
+
 
 # Terrain traversability scores (0 = unsafe, 1 = safe)
 TERRAIN_TRAVERSABILITY = {
@@ -171,14 +177,20 @@ def preprocess_image(image_path, target_size=256):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB
     image = cv2.resize(image, (target_size, target_size))
     image = image / 255.0
+    import torch
+
     image = torch.tensor(image, dtype=torch.float32).permute(2, 0, 1)
     return image.unsqueeze(0)
 
 
 def predict_segmentation(image_tensor):
     """Run segmentation prediction"""
+    global model, device
+    model, device = load_model()
     if model is None:
         raise ValueError("Model not loaded properly")
+
+    import torch
 
     with torch.no_grad():
         image_tensor = image_tensor.to(device)
@@ -254,6 +266,8 @@ def calculate_metrics(mask, confidence):
 
 def create_confusion_matrix_image(mask):
     """Create confusion matrix visualization showing pixel distribution"""
+    import matplotlib.pyplot as plt
+
     h, w = mask.shape
     total_pixels = h * w
 
@@ -328,6 +342,8 @@ def create_confusion_matrix_image(mask):
 
 def create_metrics_plot(metrics):
     """Create metrics bar chart"""
+    import matplotlib.pyplot as plt
+
     metric_names = [
         "Accuracy",
         "Precision",
@@ -495,6 +511,8 @@ def upload_file():
 @app.route("/video/stream", methods=["POST"])
 def video_stream():
     """Handle video upload and frame-by-frame processing"""
+    import torch
+
     if "file" not in request.files:
         return jsonify({"error": "No video file provided"}), 400
 
@@ -618,6 +636,8 @@ def video_stream():
 @app.route("/video/analyze_frame", methods=["POST"])
 def analyze_single_frame():
     """Analyze a single frame from webcam"""
+    import torch
+
     try:
         data = request.get_json()
         if not data or "image" not in data:
