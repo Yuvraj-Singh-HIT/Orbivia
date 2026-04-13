@@ -4,7 +4,7 @@ gunicorn
 
 torch
 torchvision
-
+timm
 segmentation-models-pytorch
 
 numpy
