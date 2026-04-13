@@ -5,6 +5,8 @@ gunicorn
 torch
 torchvision
 
+segmentation-models-pytorch
+
 numpy
 opencv-python-headless
 Pillow
