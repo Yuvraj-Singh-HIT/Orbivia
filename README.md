@@ -155,6 +155,15 @@ source venv/bin/activate        # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+### Model Weights
+
+Download the trained model weights and place them at:
+```
+backend/ml/weights/segformer.pth
+```
+
+Get the weights from: [Google Drive](https://drive.google.com/drive/folders/your-link-here) or train using `backend/ml/train.py`
+
 ### Running the Application
 
 ```bash
