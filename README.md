@@ -16,7 +16,7 @@
 
 ## 📌 Overview
 
-**Orbivia** is an AI-powered terrain intelligence system built for **autonomous navigation** and **off-road traversability analysis**. Developed as part of the **Duality AI Offroad Autonomy Segmentation Hackathon**, Orbivia showcases how synthetic data generated from **digital twin environments** can train robust semantic segmentation models that generalize to unseen real-world terrain.
+**Orbivia** is an AI-powered terrain intelligence system built for **autonomous navigation** and **off-road traversability analysis**. Orbivia showcases how synthetic data generated from **digital twin environments** can train robust semantic segmentation models that generalize to unseen real-world terrain.
 
 At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrain pixels into 10 categories and provide actionable traversability decisions (GO / SLOW / STOP) — enabling safer autonomous vehicle operation in unstructured outdoor environments.
 
