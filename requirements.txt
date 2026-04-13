@@ -9,6 +9,7 @@ numpy
 opencv-python-headless
 Pillow
 pyyaml
+seaborn
 
 matplotlib
 scikit-learn
