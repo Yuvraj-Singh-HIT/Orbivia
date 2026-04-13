@@ -28,11 +28,11 @@ At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrai
 ![Homepage](docs/Screenshot%202026-04-14%20012542.png)
 Clean and intuitive interface for uploading terrain images and videos.
 
-### 2. Real-time Segmentation Results
+### 2. Interactive Dashboard
 ![Results](docs/Screenshot%202026-04-14%20012557.png)
 Visual segmentation output showing terrain classification with color-coded classes.
 
-### 3. Interactive Dashboard
+### 3. Real-time Segmentation Results
 ![Dashboard](docs/Screenshot%202026-04-14%20012613.png)
 Comprehensive analytics with performance metrics and visualizations.
 
@@ -40,9 +40,8 @@ Comprehensive analytics with performance metrics and visualizations.
 ![Analysis](docs/Screenshot%202026-04-14%20012634.png)
 In-depth analysis with confusion matrices, class distributions, and traversability scores.
 
-### 5. Video Processing Pipeline
+### 5. Terrain Legend
 ![Video](docs/Screenshot%202026-04-14%20012651.png)
-Frame-by-frame video analysis with real-time terrain detection.
 
 ---
 
