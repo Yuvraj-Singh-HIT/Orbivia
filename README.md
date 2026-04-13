@@ -219,6 +219,60 @@ Orbivia/
 
 ---
 
+## 👥 Team
+
+Orbivia was built collaboratively by a team of 4 developers, each owning a distinct area of the project:
+
+---
+
+### 🧑‍💻 Yuvraj Singh
+**Role: ML Engineering & Model Architecture**
+
+- Designed and implemented the **SegFormer-B0** model architecture (`backend/ml/models/segformer.py`)
+- Led model training and hyperparameter tuning (`backend/ml/train.py`)
+- Integrated PyTorch inference pipeline with the Flask backend
+- Set up the overall **project repository** and managed version control
+
+[![GitHub](https://img.shields.io/badge/GitHub-Yuvraj--Singh--HIT-181717?logo=github)](https://github.com/Yuvraj-Singh-HIT)
+
+---
+
+### 👩‍💻 Ashmita Ray
+**Role: Backend Engineering & API Development**
+
+- Developed the **Flask web application** and REST API routes (`app.py`)
+- Built the **database service layer** for storing and retrieving analysis results (`backend/services/database.py`, `backend/db/database.json`)
+- Implemented **video processing** and webcam integration in the backend
+- Managed frontend–backend communication via JavaScript API calls (`frontend/static/js/main.js`)
+
+[![GitHub](https://img.shields.io/badge/GitHub-AshCodeX025-181717?logo=github)](https://github.com/AshCodeX025)
+
+---
+
+### 👩‍💻 Shrabani Neogi
+**Role: Dataset Pipeline & Evaluation**
+
+- Handled **dataset preprocessing** and loading utilities (`backend/utils/dataset.py`)
+- Implemented evaluation metrics — mIoU, Precision, Recall, F1 Score (`backend/utils/metrics.py`)
+- Created the **model evaluation pipeline** (`backend/ml/evaluation.py`)
+- Generated performance reports and confusion matrices for analysis
+
+[![GitHub](https://img.shields.io/badge/GitHub-shrabani--stack-181717?logo=github)](https://github.com/shrabani-stack)
+
+---
+
+### 👩‍💻 Upasana Majumder
+**Role: Frontend & UI/UX Design**
+
+- Designed and built the **responsive web interface** (`frontend/templates/index.html`)
+- Created custom **CSS styling** and visual components (`frontend/static/css/style.css`)
+- Implemented **interactive JavaScript** for image/video upload and real-time updates (`frontend/static/js/main.js`)
+- Integrated **Chart.js** visualizations for dashboard metrics and data representation
+
+[![GitHub](https://img.shields.io/badge/GitHub-upasana23-181717?logo=github)](https://github.com/upasana23)
+
+---
+
 ## 🤝 Contributing
 
 We welcome contributions! To get started:
