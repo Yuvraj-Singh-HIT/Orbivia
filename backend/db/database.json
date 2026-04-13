@@ -1,0 +1,128 @@
+{
+    "users": [],
+    "sessions": [],
+    "analysis_history": [
+        {
+            "filename": "46DCD221-581F-4AD7-9C8D-B6E2C6227696-scaled.jpeg",
+            "traversability_score": 0.7067703247070314,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.jpg",
+            "traversability_score": 0.8318466186523438,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.png",
+            "traversability_score": 0.8316680908203125,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.png",
+            "traversability_score": 0.8316680908203125,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.jpeg",
+            "traversability_score": 0.8318466186523438,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.webp",
+            "traversability_score": 0.8319793701171875,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "test.bmp",
+            "traversability_score": 0.8316680908203125,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "46DCD221-581F-4AD7-9C8D-B6E2C6227696-scaled.jpeg",
+            "traversability_score": 0.7067703247070314,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "46DCD221-581F-4AD7-9C8D-B6E2C6227696-scaled.jpeg",
+            "traversability_score": 0.7067703247070314,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "46DCD221-581F-4AD7-9C8D-B6E2C6227696-scaled.jpeg",
+            "traversability_score": 0.7067703247070314,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "46DCD221-581F-4AD7-9C8D-B6E2C6227696-scaled.jpeg",
+            "traversability_score": 0.7067703247070314,
+            "danger_level": "Low"
+        },
+        {
+            "filename": "Capture4.jpg",
+            "traversability_score": 0.4749099731445313,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "offroad sample 1.webp",
+            "traversability_score": 0.48970794677734375,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "offroad sample 1.webp",
+            "traversability_score": 0.4810882568359375,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "offroad sample 1.webp",
+            "traversability_score": 0.4810882568359375,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "Capture4.jpg",
+            "traversability_score": 0.4935562133789063,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "Capture4.jpg",
+            "traversability_score": 0.4935562133789063,
+            "danger_level": "Medium"
+        },
+        {
+            "filename": "Capture4.jpg",
+            "traversability_score": 0.4935562133789063,
+            "danger_level": "Medium"
+        }
+    ],
+    "model_info": {
+        "name": "Segformer MIT-B0",
+        "num_classes": 10,
+        "trained": true,
+        "model_file": "segformer.pth",
+        "accuracy": 0.85,
+        "iou_score": 0.72
+    },
+    "class_labels": {
+        "0": "Trees",
+        "1": "Lush Bushes",
+        "2": "Dry Grass",
+        "3": "Dry Bushes",
+        "4": "Ground Clutter",
+        "5": "Flowers",
+        "6": "Logs",
+        "7": "Rocks",
+        "8": "Landscape",
+        "9": "Sky"
+    },
+    "traversability_scores": {
+        "0": 0.3,
+        "1": 0.6,
+        "2": 0.8,
+        "3": 0.7,
+        "4": 0.4,
+        "5": 0.9,
+        "6": 0.2,
+        "7": 0.5,
+        "8": 0.9,
+        "9": 1.0
+    }
+}
