@@ -22,6 +22,30 @@ At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrai
 
 ---
 
+## 🖼️ Demo Screenshots
+
+### 1. Homepage - Upload Interface
+![Homepage](docs/Screenshot%202026-04-14%20012542.png)
+Clean and intuitive interface for uploading terrain images and videos.
+
+### 2. Real-time Segmentation Results
+![Results](docs/Screenshot%202026-04-14%20012557.png)
+Visual segmentation output showing terrain classification with color-coded classes.
+
+### 3. Interactive Dashboard
+![Dashboard](docs/Screenshot%202026-04-14%20012613.png)
+Comprehensive analytics with performance metrics and visualizations.
+
+### 4. Detailed Analysis & Metrics
+![Analysis](docs/Screenshot%202026-04-14%20012634.png)
+In-depth analysis with confusion matrices, class distributions, and traversability scores.
+
+### 5. Video Processing Pipeline
+![Video](docs/Screenshot%202026-04-14%20012651.png)
+Frame-by-frame video analysis with real-time terrain detection.
+
+---
+
 ## ✨ Features
 
 | Feature | Description |
@@ -74,69 +98,25 @@ Orbivia uses **SegFormer-B0** (MIT-B0 backbone), a lightweight transformer-based
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | HTML5, CSS3, Vanilla JavaScript |
-| **Backend** | Flask (Python) |
-| **ML Framework** | PyTorch |
-| **Model Architecture** | SegFormer-B0 (Hugging Face Transformers) |
-| **Visualization** | Chart.js, Matplotlib |
-| **Data Storage** | JSON-based local database |
-| **Dataset Source** | Duality AI Falcon Digital Twin Platform |
-
----
-
-## 📁 Project Structure
-
-```
-offroad_segmentation/
-├── app.py                          # Flask web application entry point
-│
-├── backend/
-│   ├── ml/
-│   │   ├── models/
-│   │   │   └── segformer.py        # SegFormer model architecture & loading
-│   │   ├── train.py                # Model training script
-│   │   ├── evaluation.py           # Model evaluation logic
-│   │   └── datasets/               # Training dataset files
-│   │
-│   ├── utils/
-│   │   ├── dataset.py              # Dataset loading & preprocessing utilities
-│   │   └── metrics.py              # mIoU, precision, recall, F1 computation
-│   │
-│   ├── services/
-│   │   └── database.py             # Database read/write management
-│   │
-│   └── db/
-│       └── database.json           # Local persistent storage (analysis logs)
-│
-├── frontend/
-│   ├── templates/
-│   │   └── index.html              # Main web interface (Jinja2 template)
-│   └── static/
-│       ├── css/
-│       │   └── style.css           # Application styles
-│       ├── js/
-│       │   └── main.js             # Frontend logic & API calls
-│       ├── favicon.svg             # Website favicon
-│       └── results/                # Saved analysis output images
-│
-├── requirements.txt                # Python dependencies
-└── README.md                       # Project documentation
-```
+| Category | Technology |
+|----------|-----------|
+| **Frontend** | HTML5, CSS3, JavaScript, Chart.js |
+| **Backend** | Flask (Python), REST API |
+| **ML Framework** | PyTorch, Segmentation Models PyTorch |
+| **Model** | SegFormer-B0 (MIT-B0 backbone) |
+| **Data** | Duality AI Falcon Digital Twin Platform |
+| **Deployment** | Gunicorn, Render-ready |
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 
-Make sure you have the following installed:
-
-- Python **3.8** or higher
-- `pip` package manager
+- Python 3.8+
+- 4GB+ RAM
 - PyTorch (CPU or GPU)
 - A modern web browser
 
@@ -175,12 +155,31 @@ Open your browser and navigate to:
 http://localhost:5000
 ```
 
-### Usage
+---
 
-1. **Image Upload** — Click "Upload Image" and select a terrain photo to analyze.
-2. **Video Analysis** — Upload a video file for frame-by-frame segmentation.
-3. **Webcam Mode** — Enable your camera for live terrain detection.
-4. **Dashboard** — View confusion matrices, class distributions, and traversability scores.
+## 📖 Usage Guide
+
+### 1. Image Upload
+Click "Upload Image" and select a terrain photo to analyze. The system will:
+- Process the image through the segmentation model
+- Display color-coded terrain classes
+- Show traversability assessment (GO/SLOW/STOP)
+
+### 2. Video Analysis
+Upload a video file for frame-by-frame segmentation. The system processes each frame and provides:
+- Real-time segmentation overlay
+- Per-frame traversability scores
+- Complete video with segmentation mask
+
+### 3. Webcam Mode
+Enable your camera for live terrain detection. Perfect for outdoor testing with a laptop or mobile device.
+
+### 4. Dashboard
+View comprehensive analytics including:
+- Confusion matrix visualization
+- Class distribution pie chart
+- Performance metrics (Precision, Recall, F1, AUC)
+- Traversability breakdown
 
 ---
 
@@ -194,61 +193,30 @@ http://localhost:5000
 | **Splits** | Train / Validation / Test — no data leakage |
 | **Classes** | 10 terrain categories |
 
-> The entire dataset was generated synthetically using Duality AI's photorealistic digital twin simulator, enabling diverse and annotated training data without manual labeling.
-
 ---
 
-## 👥 Team
+## 🔧 Project Structure
 
-Orbivia was built collaboratively by a team of 4 developers, each owning a distinct area of the project:
-
----
-
-### 🧑‍💻 Yuvraj Singh
-**Role: ML Engineering & Model Architecture**
-
-- Designed and implemented the **SegFormer-B0** model architecture (`backend/ml/models/segformer.py`)
-- Led model training and hyperparameter tuning (`backend/ml/train.py`)
-- Integrated PyTorch inference pipeline with the Flask backend
-- Set up the overall **project repository** and managed version control
-
-[![GitHub](https://img.shields.io/badge/GitHub-Yuvraj--Singh--HIT-181717?logo=github)](https://github.com/Yuvraj-Singh-HIT)
-
----
-
-### 👩‍💻 Ashmita Ray
-**Role: Backend Engineering & API Development**
-
-- Developed the **Flask web application** and REST API routes (`app.py`)
-- Built the **database service layer** for storing and retrieving analysis results (`backend/services/database.py`, `backend/db/database.json`)
-- Implemented **video processing** and webcam integration in the backend
-- Managed frontend–backend communication via JavaScript API calls (`frontend/static/js/main.js`)
-
-[![GitHub](https://img.shields.io/badge/GitHub-AshCodeX025-181717?logo=github)](https://github.com/AshCodeX025)
-
----
-
-### 👩‍💻 Shrabani Neogi
-**Role: Dataset Pipeline & Evaluation**
-
-- Handled **dataset preprocessing** and loading utilities (`backend/utils/dataset.py`)
-- Implemented evaluation metrics — mIoU, Precision, Recall, F1 Score (`backend/utils/metrics.py`)
-- Ran model **evaluation experiments** and generated performance reports (`backend/ml/evaluation.py`)
-- Managed train/validation/test splits to ensure no data leakage
-
-[![GitHub](https://img.shields.io/badge/GitHub-shrabani--stack-181717?logo=github)](https://github.com/shrabani-stack)
-
----
-
-### 👩‍💻 Upasana Majumder
-**Role: Frontend Development & UI/UX**
-
-- Built the complete **web interface** (`frontend/templates/index.html`)
-- Developed CSS styling and responsive layout (`frontend/static/css/style.css`)
-- Created interactive **data visualizations** using Chart.js (confusion matrices, class distribution charts)
-- Designed the **favicon** and overall visual identity of Orbivia
-
-[![GitHub](https://img.shields.io/badge/GitHub-upasana23-181717?logo=github)](https://github.com/upasana23)
+```
+Orbivia/
+├── app.py                    # Main Flask application
+├── backend/
+│   ├── ml/
+│   │   ├── models/           # SegFormer model implementation
+│   │   ├── train.py          # Model training script
+│   │   ├── evaluation.py     # Model evaluation
+│   │   └── weights/          # Model weights (download separately)
+│   ├── utils/                # Dataset & metrics utilities
+│   ├── services/             # Database & API services
+│   ├── config.yaml           # Configuration file
+│   └── db/                   # Database JSON files
+├── frontend/
+│   ├── templates/            # HTML templates
+│   └── static/               # CSS, JS, images
+├── docs/                    # Documentation & screenshots
+├── requirements.txt          # Python dependencies
+└── README.md                # This file
+```
 
 ---
 
