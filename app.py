@@ -1,4 +1,7 @@
 import os
+
+os.environ["MPLCONFIGDIR"] = "/tmp"
+
 import cv2
 import numpy as np
 import torch
@@ -19,8 +22,7 @@ from flask import (
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 from sklearn.metrics import (
     confusion_matrix,
     accuracy_score,
@@ -30,6 +32,7 @@ from sklearn.metrics import (
     roc_auc_score,
     matthews_corrcoef,
 )
+import matplotlib.pyplot as plt
 
 # Import your model and utilities
 try:
