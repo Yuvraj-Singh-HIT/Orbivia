@@ -157,12 +157,10 @@ pip install -r requirements.txt
 
 ### Model Weights
 
-Download the trained model weights and place them at:
-```
-backend/ml/weights/segformer.pth
-```
+Download the trained model weights from Google Drive:
+[**Download segformer.pth**](https://drive.google.com/drive/folders/1bGfn7Pxqrs0SoX_nui5QCz1bfsVHVtIi?usp=drive_link)
 
-Get the weights from: [Google Drive](https://drive.google.com/drive/folders/your-link-here) or train using `backend/ml/train.py`
+Place the file at: `backend/ml/weights/segformer.pth`
 
 ### Running the Application
 
