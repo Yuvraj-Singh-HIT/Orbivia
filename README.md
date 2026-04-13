@@ -24,11 +24,11 @@ At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrai
 
 ## 🖼️ Demo Screenshots
 
-### 1. Homepage - Upload Interface
+### 1. Homepage
 ![Homepage](docs/Screenshot%202026-04-14%20012542.png)
 Clean and intuitive interface for uploading terrain images and videos.
 
-### 2. Interactive Dashboard
+### 2. Interactive Dashboard - Upload Interface
 ![Results](docs/Screenshot%202026-04-14%20012557.png)
 Visual segmentation output showing terrain classification with color-coded classes.
 
