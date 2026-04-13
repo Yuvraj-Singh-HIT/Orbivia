@@ -20,8 +20,6 @@
 
 At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrain pixels into 10 categories and provide actionable traversability decisions (GO / SLOW / STOP) — enabling safer autonomous vehicle operation in unstructured outdoor environments.
 
-> 🏆 *Built for the Duality AI Falcon Digital Twin Platform Hackathon — using fully synthetic desert environment data for training.*
-
 ---
 
 ## ✨ Features
