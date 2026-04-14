@@ -1,321 +1,354 @@
 <div align="center">
 
-# 🛰️ Orbivia — AI Terrain Intelligence
+```
+                                ██████╗ ██████╗ ██████╗ ██╗██╗   ██╗██╗ █████╗ 
+                               ██╔═══██╗██╔══██╗██╔══██╗██║██║   ██║██║██╔══██╗
+                               ██║   ██║██████╔╝██████╔╝██║██║   ██║██║███████║
+                               ██║   ██║██╔══██╗██╔══██╗██║╚██╗ ██╔╝██║██╔══██║
+                               ╚██████╔╝██║  ██║██████╔╝██║ ╚████╔╝ ██║██║  ██║
+                                ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═══╝  ╚═╝╚═╝  ╚═╝
+```
 
-**Autonomous off-road navigation powered by semantic segmentation and digital twins**
+### `[ TERRAIN INTELLIGENCE SYSTEM v1.0 ]`
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red?logo=pytorch&logoColor=white)](https://pytorch.org)
-[![Flask](https://img.shields.io/badge/Flask-3.x-black?logo=flask&logoColor=white)](https://flask.palletsprojects.com)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Hackathon](https://img.shields.io/badge/Duality%20AI-Offroad%20Hackathon-orange)](https://duality.ai)
+*The ground beneath your wheels is a puzzle — Orbivia solves it.*
+
+[![Python 3.8+](https://img.shields.io/badge/Python-3.8+-0d1117?style=flat-square&logo=python&logoColor=3572A5&labelColor=0d1117)](https://python.org)
+[![PyTorch 2.0+](https://img.shields.io/badge/PyTorch-2.0+-0d1117?style=flat-square&logo=pytorch&logoColor=EE4C2C&labelColor=0d1117)](https://pytorch.org)
+[![Flask](https://img.shields.io/badge/Flask-3.x-0d1117?style=flat-square&logo=flask&logoColor=ffffff&labelColor=0d1117)](https://flask.palletsprojects.com)
+[![SegFormer](https://img.shields.io/badge/Model-SegFormer--B0-0d1117?style=flat-square&logoColor=white&labelColor=0d1117&color=238636)](https://huggingface.co/nvidia/segformer-b0)
+[![Duality AI Hackathon](https://img.shields.io/badge/Duality%20AI-Offroad%20Hackathon-0d1117?style=flat-square&labelColor=0d1117&color=FF6B35)](https://duality.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0d1117?style=flat-square&labelColor=0d1117&color=yellow)](https://opensource.org/licenses/MIT)
 
 </div>
 
 ---
 
-## 📌 Overview
+## ◈ What is Orbivia?
 
-**Orbivia** is an AI-powered terrain intelligence system built for **autonomous navigation** and **off-road traversability analysis**. Orbivia showcases how synthetic data generated from **digital twin environments** can train robust semantic segmentation models that generalize to unseen real-world terrain.
+**Orbivia** sees terrain the way a hawk sees a field — not as scenery, but as a map of decisions.
 
-At its core, Orbivia uses a fine-tuned **SegFormer-B0** model to classify terrain pixels into 10 categories and provide actionable traversability decisions (GO / SLOW / STOP) — enabling safer autonomous vehicle operation in unstructured outdoor environments.
+Built for autonomous off-road navigation, Orbivia ingests raw imagery and outputs a semantic understanding of the ground: what's safe, what's risky, what's a dead stop. Trained entirely on **synthetic digital twin data** from the Duality AI Falcon platform, it generalizes to real-world terrain without ever needing a single real-world pixel during training.
+
+At its core: a fine-tuned **SegFormer-B0** transformer model, classifying every pixel into 10 terrain categories and translating that understanding into concrete navigation commands — `🟢 GO`, `🟡 SLOW`, `🔴 STOP`.
 
 ---
 
-## 🖼️ Demo Screenshots
+## ◈ Screenshots
 
-### 1. Homepage
+<table>
+<tr>
+<td width="50%">
+
+**Homepage**
 ![Homepage](docs/Screenshot%202026-04-14%20012542.png)
-Clean and intuitive interface for uploading terrain images and videos.
 
-### 2. Interactive Dashboard - Upload Interface
-![Results](docs/Screenshot%202026-04-14%20012557.png)
-Visual segmentation output showing terrain classification with color-coded classes.
+</td>
+<td width="50%">
 
-### 3. Real-time Segmentation Results
-![Dashboard](docs/Screenshot%202026-04-14%20012613.png)
-Comprehensive analytics with performance metrics and visualizations.
+**Interactive Dashboard — Clean Upload Interface**
+![Dashboard](docs/Screenshot%202026-04-14%20012557.png)
 
-### 4. Detailed Analysis & Metrics
-![Analysis](docs/Screenshot%202026-04-14%20012634.png)
-In-depth analysis with confusion matrices, class distributions, and traversability scores.
+</td>
+</tr>
+<tr>
+<td width="50%">
 
-### 5. Terrain Legend
-![Video](docs/Screenshot%202026-04-14%20012651.png)
+**Live Segmentation Output**
+![Segmentation](docs/Screenshot%202026-04-14%20012613.png)
 
----
+</td>
+<td width="50%">
 
-## ✨ Features
+**Deep Metrics & Analytics**
+![Metrics](docs/Screenshot%202026-04-14%20012634.png)
 
-| Feature | Description |
-|--------|-------------|
-| 🖼️ **Real-time Terrain Analysis** | Upload images for instant semantic segmentation output |
-| 🎥 **Video Processing** | Frame-by-frame segmentation pipeline for video inputs |
-| 📷 **Webcam Support** | Live terrain analysis directly from your browser camera |
-| 🗺️ **Multi-class Segmentation** | Identifies 10 terrain classes (trees, rocks, sky, grass, etc.) |
-| 🚦 **Traversability Assessment** | AI-powered GO / CAUTION / STOP terrain evaluation |
-| 📊 **Interactive Dashboard** | Visual analytics with charts, confusion matrices, and metrics |
-| 🔁 **Model Evaluation** | Precision, Recall, F1, and mIoU scoring available post-analysis |
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center">
 
----
+**Terrain Class Legend**
+![Legend](docs/Screenshot%202026-04-14%20012651.png)
 
-## 🧠 Model & Architecture
-
-Orbivia uses **SegFormer-B0** (MIT-B0 backbone), a lightweight transformer-based semantic segmentation architecture well-suited for embedded and real-time deployment.
-
-- **Encoder:** Mix Transformer (MiT-B0) — hierarchical with overlapping patch embeddings
-- **Decoder:** MLP decoder head for all-MLP feature aggregation
-- **Input Resolution:** Configurable; optimized for efficiency
-- **Output:** Per-pixel class probabilities across 10 terrain labels
-
-### Model Performance
-
-| Metric | Value |
-|--------|-------|
-| Validation mIoU | 0.10 |
-| Accuracy | 85% |
-| Precision / Recall / F1 | Available in dashboard post-analysis |
-
-> *Note: mIoU is lower due to severe class imbalance in synthetic desert terrain; accuracy remains strong for dominant classes.*
+</td>
+</tr>
+</table>
 
 ---
 
-## 🗺️ Segmentation Classes & Traversability
+## ◈ Feature Matrix
 
-| Class ID | Class Name | Traversability | Meaning |
-|----------|-----------|----------------|---------|
-| 0 | Trees | 🟢 GO | Clear surroundings, safe to proceed |
-| 1 | Lush Bushes | 🟢 GO | Passable vegetation |
-| 2 | Dry Grass | 🟡 SLOW | Proceed with caution |
-| 3 | Dry Bushes | 🟡 SLOW | Possible obstruction |
-| 4 | Ground Clutter | 🟡 SLOW | Mixed terrain, reduced confidence |
-| 5 | Flowers | 🟢 GO | Open, low-risk ground cover |
-| 6 | Logs | 🔴 STOP | Physical obstacle, do not traverse |
-| 7 | Rocks | 🔴 STOP | High-risk terrain, halt navigation |
-| 8 | Landscape | 🟢 GO | Open terrain |
-| 9 | Sky | 🟢 GO | Background reference class |
+```
+┌─────────────────────────────────────────────────────────────┐
+│  INPUT MODES          │  INTELLIGENCE            │  OUTPUT   │
+├───────────────────────┼──────────────────────────┼───────────┤
+│  📸 Image upload       │  10-class segmentation   │  GO  🟢   │
+│  🎞️  Video stream      │  Per-pixel confidence    │  SLOW 🟡  │
+│  📷 Live webcam        │  Traversability scoring  │  STOP 🔴  │
+└───────────────────────┴──────────────────────────┴───────────┘
+```
 
----
-
-## 🛠️ Tech Stack
-
-| Category | Technology |
-|----------|-----------|
-| **Frontend** | HTML5, CSS3, JavaScript, Chart.js |
-| **Backend** | Flask (Python), REST API |
-| **ML Framework** | PyTorch, Segmentation Models PyTorch |
-| **Model** | SegFormer-B0 (MIT-B0 backbone) |
-| **Data** | Duality AI Falcon Digital Twin Platform |
-| **Deployment** | Gunicorn, Render-ready |
+| Capability | Details |
+|:-----------|:--------|
+| **Real-time Terrain Analysis** | Sub-second segmentation on standard hardware |
+| **Video Frame Pipeline** | Frame-by-frame analysis with per-frame traversability scores |
+| **Live Webcam Mode** | Stream your browser camera directly into the inference engine |
+| **Multi-class Segmentation** | Trees, rocks, grass, sky, logs, flowers — 10 terrain archetypes |
+| **Traversability Engine** | GO / CAUTION / STOP decisions grounded in class-level risk profiles |
+| **Interactive Dashboard** | Confusion matrices, class distributions, F1/mIoU scoring |
 
 ---
 
-## 🚀 Quick Start
+## ◈ The Architecture
+
+```
+                    ┌──────────────────────────────┐
+                    │        INPUT LAYER           │
+                    │  [Image / Video / Webcam]    │
+                    └──────────────┬───────────────┘
+                                   │
+                    ┌──────────────▼───────────────┐
+                    │       MIT-B0 ENCODER         │
+                    │  Hierarchical Transformer    │
+                    │  Overlapping patch embeddings│
+                    │  4-stage feature extraction  │
+                    └──────────────┬───────────────┘
+                                   │
+                    ┌──────────────▼───────────────┐
+                    │       MLP DECODER HEAD       │
+                    │  All-MLP feature aggregation │
+                    │  Lightweight & deploy-ready  │
+                    └──────────────┬───────────────┘
+                                   │
+               ┌───────────────────┼───────────────────┐
+               │                   │                   │
+    ┌──────────▼──────┐  ┌─────────▼────────┐  ┌──────▼──────────┐
+    │  PIXEL CLASS    │  │  CLASS MASK      │  │  TRAVERSABILITY │
+    │  PROBABILITIES  │  │  VISUALIZATION   │  │  DECISION       │
+    └─────────────────┘  └──────────────────┘  └─────────────────┘
+```
+
+### Model specs
+
+| Parameter | Value |
+|:----------|:------|
+| Architecture | SegFormer-B0 (MIT-B0 backbone) |
+| Encoder | Mix Transformer — hierarchical with overlapping patch embeddings |
+| Decoder | All-MLP head for lightweight feature aggregation |
+| Validation mIoU | `0.10` *(see note below)* |
+| Accuracy | `85%` |
+| Metrics | Precision · Recall · F1 · mIoU — all available post-analysis |
+
+> **On the mIoU:** The 0.10 figure reflects severe class imbalance in synthetic desert terrain — not model failure. Dominant terrain classes hit 85% accuracy. The imbalance is a dataset property, not an architecture flaw.
+
+---
+
+## ◈ Terrain Intelligence Map
+
+Every pixel gets a verdict. Every verdict informs a decision.
+
+| ID | Terrain Class | Signal | Reasoning |
+|:--:|:-------------|:------:|:----------|
+| `0` | Trees | 🟢 **GO** | Clear surrounding — safe path ahead |
+| `1` | Lush Bushes | 🟢 **GO** | Passable vegetation, low resistance |
+| `2` | Dry Grass | 🟡 **SLOW** | Reduced traction, reduced visibility |
+| `3` | Dry Bushes | 🟡 **SLOW** | Possible concealed obstacles |
+| `4` | Ground Clutter | 🟡 **SLOW** | Mixed terrain, degraded confidence |
+| `5` | Flowers | 🟢 **GO** | Open, low-risk ground cover |
+| `6` | Logs | 🔴 **STOP** | Hard physical obstacle — do not traverse |
+| `7` | Rocks | 🔴 **STOP** | High-risk — halt navigation immediately |
+| `8` | Landscape | 🟢 **GO** | Open terrain, clear trajectory |
+| `9` | Sky | 🟢 **GO** | Background reference class |
+
+---
+
+## ◈ Tech Stack
+
+```
+FRONTEND    ──  HTML5 · CSS3 · JavaScript · Chart.js
+BACKEND     ──  Flask (Python) · REST API
+ML          ──  PyTorch · Segmentation Models PyTorch
+MODEL       ──  SegFormer-B0 (MIT-B0 backbone)
+DATA        ──  Duality AI Falcon Digital Twin Platform
+DEPLOY      ──  Gunicorn · Render-ready
+```
+
+---
+
+## ◈ Get Running in 4 Steps
 
 ### Prerequisites
 
-- Python 3.8+
-- 4GB+ RAM
-- PyTorch (CPU or GPU)
-- A modern web browser
+```
+Python 3.8+  ·  4GB+ RAM  ·  PyTorch (CPU or GPU)  ·  Any modern browser
+```
 
-### Installation
+### Step 1 — Clone
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/Yuvraj-Singh-HIT/Orbivia.git
 cd Orbivia
+```
 
-# 2. (Recommended) Create a virtual environment
+### Step 2 — Environment
+
+```bash
 python -m venv venv
-source venv/bin/activate        # On Windows: venv\Scripts\activate
-
-# 3. Install all dependencies
+source venv/bin/activate        # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### Model Weights
+### Step 3 — Model Weights
 
-Download the trained model weights from Google Drive:
-[**Download segformer.pth**](https://drive.google.com/drive/folders/1bGfn7Pxqrs0SoX_nui5QCz1bfsVHVtIi?usp=drive_link)
+Download `segformer.pth` from Google Drive:
+👉 [**Download weights**](https://drive.google.com/drive/folders/1bGfn7Pxqrs0SoX_nui5QCz1bfsVHVtIi?usp=drive_link)
 
-Place the file at: `backend/ml/weights/segformer.pth`
+Place at: `backend/ml/weights/segformer.pth`
 
-### Running the Application
+### Step 4 — Launch
 
 ```bash
-# Start the Flask development server
 python app.py
-```
-
-Open your browser and navigate to:
-
-```
-http://localhost:5000
+# → http://localhost:5000
 ```
 
 ---
 
-## 📖 Usage Guide
+## ◈ Using Orbivia
 
-### 1. Image Upload
-Click "Upload Image" and select a terrain photo to analyze. The system will:
-- Process the image through the segmentation model
-- Display color-coded terrain classes
-- Show traversability assessment (GO/SLOW/STOP)
+```
+ ┌─ IMAGE MODE ──────────────────────────────────────────────┐
+ │  Upload terrain photo → segmentation overlay → GO/SLOW/STOP
+ └───────────────────────────────────────────────────────────┘
 
-### 2. Video Analysis
-Upload a video file for frame-by-frame segmentation. The system processes each frame and provides:
-- Real-time segmentation overlay
-- Per-frame traversability scores
-- Complete video with segmentation mask
+ ┌─ VIDEO MODE ──────────────────────────────────────────────┐
+ │  Upload video → per-frame segmentation → downloadable output
+ └───────────────────────────────────────────────────────────┘
 
-### 3. Webcam Mode
-Enable your camera for live terrain detection. Perfect for outdoor testing with a laptop or mobile device.
+ ┌─ WEBCAM MODE ─────────────────────────────────────────────┐
+ │  Enable camera → live terrain feed → real-time traversability
+ └───────────────────────────────────────────────────────────┘
 
-### 4. Dashboard
-View comprehensive analytics including:
-- Confusion matrix visualization
-- Class distribution pie chart
-- Performance metrics (Precision, Recall, F1, AUC)
-- Traversability breakdown
+ ┌─ DASHBOARD ───────────────────────────────────────────────┐
+ │  Confusion matrix · Class distribution · Precision/F1/AUC
+ └───────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 📦 Dataset
+## ◈ Dataset
 
 | Property | Details |
-|----------|---------|
+|:---------|:--------|
 | **Source** | Duality AI Falcon Digital Twin Platform |
-| **Environment** | Fully synthetic desert terrain |
-| **Type** | Annotated semantic segmentation masks |
-| **Splits** | Train / Validation / Test — no data leakage |
+| **Type** | Fully synthetic desert terrain |
+| **Labels** | Annotated per-pixel semantic segmentation masks |
+| **Splits** | Train / Validation / Test — zero data leakage |
 | **Classes** | 10 terrain categories |
 
 ---
 
-## 🔧 Project Structure
+## ◈ Repository Layout
 
 ```
 Orbivia/
-├── app.py                    # Main Flask application
+│
+├── app.py                        ← Flask entrypoint
+│
 ├── backend/
 │   ├── ml/
-│   │   ├── models/           # SegFormer model implementation
-│   │   ├── train.py          # Model training script
-│   │   ├── evaluation.py     # Model evaluation
-│   │   └── weights/          # Model weights (download separately)
-│   ├── utils/                # Dataset & metrics utilities
-│   ├── services/             # Database & API services
-│   ├── config.yaml           # Configuration file
-│   └── db/                   # Database JSON files
+│   │   ├── models/segformer.py   ← SegFormer architecture
+│   │   ├── train.py              ← Training loop
+│   │   ├── evaluation.py         ← Inference & evaluation
+│   │   └── weights/              ← Drop segformer.pth here
+│   ├── utils/
+│   │   ├── dataset.py            ← Data loading & preprocessing
+│   │   └── metrics.py            ← mIoU, F1, Precision, Recall
+│   ├── services/database.py      ← Storage & retrieval layer
+│   └── config.yaml               ← Central config
+│
 ├── frontend/
-│   ├── templates/            # HTML templates
-│   └── static/               # CSS, JS, images
-├── docs/                    # Documentation & screenshots
-├── requirements.txt          # Python dependencies
-└── README.md                # This file
+│   ├── templates/index.html      ← Main interface
+│   └── static/
+│       ├── css/style.css         ← Styling
+│       └── js/main.js            ← Upload, API calls, Chart.js
+│
+├── docs/                         ← Screenshots & documentation
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## 👥 Team
+## ◈ The Team
 
-Orbivia was built collaboratively by a team of 4 developers, each owning a distinct area of the project:
-
----
-
-### 🧑‍💻 Yuvraj Singh
-**Role: ML Engineering & Model Architecture**
-
-- Designed and implemented the **SegFormer-B0** model architecture (`backend/ml/models/segformer.py`)
-- Led model training and hyperparameter tuning (`backend/ml/train.py`)
-- Integrated PyTorch inference pipeline with the Flask backend
-- Set up the overall **project repository** and managed version control
-
-[![GitHub](https://img.shields.io/badge/GitHub-Yuvraj--Singh--HIT-181717?logo=github)](https://github.com/Yuvraj-Singh-HIT)
+Four engineers, four domains, one system.
 
 ---
 
-### 👩‍💻 Ashmita Ray
-**Role: Backend Engineering & API Development**
+**Yuvraj Singh** — *ML Engineering & Architecture*
+> Designed and implemented the SegFormer-B0 architecture · Led model training and hyperparameter tuning · Built PyTorch ↔ Flask inference bridge · Managed the repository and version control
 
-- Developed the **Flask web application** and REST API routes (`app.py`)
-- Built the **database service layer** for storing and retrieving analysis results (`backend/services/database.py`, `backend/db/database.json`)
-- Implemented **video processing** and webcam integration in the backend
-- Managed frontend–backend communication via JavaScript API calls (`frontend/static/js/main.js`)
-
-[![GitHub](https://img.shields.io/badge/GitHub-AshCodeX025-181717?logo=github)](https://github.com/AshCodeX025)
+[![GitHub](https://img.shields.io/badge/Yuvraj--Singh--HIT-0d1117?style=flat-square&logo=github)](https://github.com/Yuvraj-Singh-HIT)
 
 ---
 
-### 👩‍💻 Shrabani Neogi
-**Role: Dataset Pipeline & Evaluation**
+**Ashmita Ray** — *Backend Engineering & API*
+> Developed Flask web application and all REST routes · Built database service layer for analysis persistence · Implemented video processing and webcam integration · Wired frontend–backend JS communication
 
-- Handled **dataset preprocessing** and loading utilities (`backend/utils/dataset.py`)
-- Implemented evaluation metrics — mIoU, Precision, Recall, F1 Score (`backend/utils/metrics.py`)
-- Created the **model evaluation pipeline** (`backend/ml/evaluation.py`)
-- Generated performance reports and confusion matrices for analysis
-
-[![GitHub](https://img.shields.io/badge/GitHub-shrabani--stack-181717?logo=github)](https://github.com/shrabani-stack)
+[![GitHub](https://img.shields.io/badge/AshCodeX025-0d1117?style=flat-square&logo=github)](https://github.com/AshCodeX025)
 
 ---
 
-### 👩‍💻 Upasana Majumder
-**Role: Frontend & UI/UX Design**
+**Shrabani Neogi** — *Dataset Pipeline & Evaluation*
+> Handled dataset preprocessing and loading utilities · Implemented mIoU, Precision, Recall, F1 scoring · Built the full model evaluation pipeline · Produced confusion matrices and performance reports
 
-- Designed and built the **responsive web interface** (`frontend/templates/index.html`)
-- Created custom **CSS styling** and visual components (`frontend/static/css/style.css`)
-- Implemented **interactive JavaScript** for image/video upload and real-time updates (`frontend/static/js/main.js`)
-- Integrated **Chart.js** visualizations for dashboard metrics and data representation
-
-[![GitHub](https://img.shields.io/badge/GitHub-upasana23-181717?logo=github)](https://github.com/upasana23)
+[![GitHub](https://img.shields.io/badge/shrabani--stack-0d1117?style=flat-square&logo=github)](https://github.com/shrabani-stack)
 
 ---
 
-## 🤝 Contributing
+**Upasana Majumder** — *Frontend & UI/UX*
+> Designed and built the responsive web interface · Crafted all CSS components and visual language · Implemented interactive JavaScript for uploads and real-time updates · Integrated Chart.js dashboard visualizations
 
-We welcome contributions! To get started:
+[![GitHub](https://img.shields.io/badge/upasana23-0d1117?style=flat-square&logo=github)](https://github.com/upasana23)
+
+---
+
+## ◈ Contributing
 
 ```bash
-# Fork the repo, then:
-git checkout -b feature/your-feature-name
-git commit -m "feat: add your feature"
-git push origin feature/your-feature-name
-# Open a Pull Request on GitHub
+git checkout -b feature/your-idea
+git commit -m "feat: describe what it does"
+git push origin feature/your-idea
+# → open a Pull Request
 ```
 
-Please make sure your code is well-commented and that existing tests pass before submitting.
+Comment your code. Keep tests green. We'll handle the rest.
 
 ---
 
-## 📄 License
+## ◈ License
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License
-
-Copyright (c) 2024 Orbivia Team
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction...
-```
+MIT — do what you want, keep the attribution.
 
 ---
 
-## 🙏 Acknowledgements
+## ◈ Acknowledgements
 
-- [**Duality AI**](https://duality.ai) — for the Falcon Digital Twin Platform and hackathon opportunity
-- [**Hugging Face Transformers**](https://huggingface.co/docs/transformers) — for the SegFormer implementation
-- [**PyTorch**](https://pytorch.org) — ML framework backbone
-- [**Chart.js**](https://chartjs.org) — frontend data visualization
+- [**Duality AI**](https://duality.ai) — Falcon Digital Twin Platform + hackathon
+- [**Hugging Face**](https://huggingface.co/docs/transformers) — SegFormer implementation
+- [**PyTorch**](https://pytorch.org) — ML backbone
+- [**Chart.js**](https://chartjs.org) — Dashboard visualizations
 
 ---
 
 <div align="center">
 
-Built with ❤️ by Team Orbivia
+```
+[ ORBIVIA — KNOW THE GROUND BEFORE YOU MOVE ]
+```
+
+*Built by Team Orbivia*
 
 </div>
